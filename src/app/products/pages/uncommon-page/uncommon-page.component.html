@@ -6,7 +6,7 @@
 
 <div class="grid">
   <div class="col-12 md:col-6">
-    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+    <p-fieldset legend="Select Pipe" [toggleable]="true">
       <p>
         Saludos {{ name }}, es un placer {{ gender | i18nSelect:invitationMap }} a nuestro evento
       </p>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="col-12 md:col-6">
-    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+    <p-fieldset legend="Plural Pipe" [toggleable]="true">
       <p>
         Actualmente {{clientes.length | i18nPlural:clientesMap}}
       </p>
@@ -33,26 +33,47 @@
   </div>
 
   <div class="col-12 md:col-6">
-    <p-fieldset legend="i18nSlice Pipe" [toggleable]="true">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{clientes}}</pre>
 
+      <b>Slice:0:2</b>
+      <pre>{{clientes | slice:0:2}}</pre>
+
+      <b>Slice:1:2</b>
+      <pre>{{clientes | slice:1:2}}</pre>
+
+      <b>Slice:1:3</b>
+      <pre>{{clientes | slice:1:3}}</pre>
+
+      <b>Slice:3:4</b>
+      <pre>{{clientes | slice:3:4}}</pre>
+
+      <b>Slice:0:-2</b>
+      <pre>{{clientes | slice:0:-2}}</pre>
     </p-fieldset>
   </div>
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="Json Pipe" [toggleable]="true">
-
+      <pre>{{person | json}}</pre>
     </p-fieldset>
   </div>
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
-
+      <ul>
+        <li *ngFor="let item of person | keyvalue">
+          <b>{{ item.key | titlecase }}:</b> {{ item.value }}
+        </li>
+      </ul>
     </p-fieldset>
   </div>
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="Async Pipe" [toggleable]="true">
-
+      <pre>{{ myObservableTimer | async}}</pre>
+      <pre>{{ myObservableTimer | json}}</pre>
     </p-fieldset>
   </div>
 
